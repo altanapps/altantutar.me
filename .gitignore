@@ -1,0 +1,6 @@
+# The earlier Astro build — kept locally, not published (250MB of node_modules)
+astro-version/
+.astro/
+
+.DS_Store
+node_modules/
