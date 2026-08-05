@@ -1,0 +1,7 @@
+.git
+.gitignore
+astro-version
+.astro
+README.md
+Dockerfile
+.dockerignore
