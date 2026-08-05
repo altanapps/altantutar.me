@@ -6,7 +6,6 @@
 
 	# Note: internal links use .html so the site also works from file:// and a
 	# plain static server. Duplicate URLs are resolved by the <link rel=canonical>
-	# on every page, not by redirects, so no internal link ever takes a 301 hop.
 
 	# Clean URLs: /research serves research.html
 	try_files {path} {path}.html {path}/index.html
