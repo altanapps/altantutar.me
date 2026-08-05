@@ -597,3 +597,11 @@ ul.papers .cover-year {
   font-style: italic;
   color: var(--faint);
 }
+
+/* Follower counts on the social cards. Deliberately quiet: they are context,
+   not a headline. Update by hand when they drift. */
+ul.cards .count {
+  margin-left: 0.4rem;
+  color: var(--faint);
+  font-size: 0.8125rem;
+}
