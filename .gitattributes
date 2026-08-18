@@ -1,0 +1,5 @@
+# Generated/vendored data — keep out of diffs and language stats.
+scripts/countries.geo.json linguist-generated
+scripts/post-history.json linguist-generated
+scripts/x-timeline-cache.json linguist-generated
+activity.html linguist-generated
