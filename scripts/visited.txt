@@ -1,0 +1,7 @@
+# Countries visited — one ISO3 code per line, "#" comments allowed.
+# Full code list: scripts/countries.geo.json ("id" of each feature).
+# After editing, run: python3 scripts/build_activity.py
+TUR  # home
+GBR  # home now — London
+USA  # Davidson College
+ESP  # La Manga, Jul 2026

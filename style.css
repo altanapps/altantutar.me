@@ -598,6 +598,74 @@ ul.papers .cover-year {
   color: var(--faint);
 }
 
+/* ---- activity page: world map + heatmaps ---------------------------- */
+/* Both are inline SVG baked in by scripts/build_activity.py. */
+
+.worldmap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.worldmap .country {
+  fill: #eae4d7;
+  stroke: var(--paper);
+  stroke-width: 0.6;
+}
+
+.worldmap .country.v {
+  fill: var(--accent);
+  fill-opacity: 0.82;
+}
+
+.worldmap .country:hover {
+  fill: #d8d0be;
+}
+
+.worldmap .country.v:hover {
+  fill: var(--accent);
+  fill-opacity: 1;
+}
+
+/* CSS-only hover label: each country path is followed by a hidden <text>
+   with its name, revealed by the sibling selector. Safari never shows
+   native SVG <title> tooltips, so this is the dependable route. */
+.worldmap .label {
+  opacity: 0;
+  pointer-events: none;
+  fill: var(--muted);
+  font-family: inherit;
+  font-size: 24px;
+  font-style: italic;
+  transition: opacity 0.12s ease;
+}
+
+.worldmap .country:hover + .label {
+  opacity: 1;
+}
+
+.heatmap {
+  margin-top: 0.25rem;
+}
+
+.heatmap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heatmap text {
+  font-family: inherit;
+  font-size: 10px;
+  fill: var(--faint);
+}
+
+.widget-note {
+  margin: 0.5rem 0 0;
+  color: var(--faint);
+  font-size: 0.875rem;
+}
+
 /* Follower counts on the social cards. Deliberately quiet: they are context,
    not a headline. Update by hand when they drift. */
 ul.cards .count {
