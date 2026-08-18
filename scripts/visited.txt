@@ -8,6 +8,9 @@ GBR  # home now — London (covers Scotland)
 USA  # Davidson College
 ESP  # La Manga
 PRT
+NOR
+SWE
+DNK
 ARE  # UAE
 QAT
 SAU
