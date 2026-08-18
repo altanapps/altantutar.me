@@ -11,6 +11,12 @@ PRT
 NOR
 SWE
 DNK
+NLD
+CHE  # Switzerland
+CZE
+AUT
+HUN
+LUX
 ARE  # UAE
 QAT
 SAU
