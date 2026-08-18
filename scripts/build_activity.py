@@ -33,6 +33,16 @@ POST_CSV_GLOBS = [
 
 # ---- world map ------------------------------------------------------------
 
+# Countries too small for the 110m map data; drawn as dots when visited.
+SMALL_PLACES = {
+    "SGP": (103.82, 1.35, "Singapore"),
+    "ABW": (-69.97, 12.52, "Aruba"),
+    "MLT": (14.44, 35.90, "Malta"),
+    "BHR": (50.55, 26.05, "Bahrain"),
+    "MDV": (73.5, 4.2, "Maldives"),
+    "HKG": (114.17, 22.30, "Hong Kong"),
+}
+
 MAP_W = 1000.0
 LAT_TOP, LAT_BOT = 84.0, -56.0  # clip empty poles; Antarctica is skipped anyway
 MAP_H = round(MAP_W * (LAT_TOP - LAT_BOT) / 360.0, 1)
@@ -96,9 +106,16 @@ def build_map():
             f'<text class="label" x="6" y="{label_y:.0f}">{name}</text>'
         )
 
-    missing = visited - known
-    if missing:
-        print(f"warning: visited codes not in the map data: {sorted(missing)}", file=sys.stderr)
+    for iso in sorted(visited - known):
+        if iso in SMALL_PLACES:
+            lon, lat, name = SMALL_PLACES[iso]
+            x, y = project(lon, lat)
+            paths.append(
+                f'<circle class="country v dot" cx="{x:.1f}" cy="{y:.1f}" r="4"></circle>'
+                f'<text class="label" x="6" y="{label_y:.0f}">{name}</text>'
+            )
+        else:
+            print(f"warning: visited code not in map data: {iso}", file=sys.stderr)
 
     svg = (
         f'<div class="worldmap"><svg viewBox="0 0 {MAP_W:g} {MAP_H:g}" role="img" '

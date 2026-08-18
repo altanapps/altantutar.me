@@ -1,7 +1,28 @@
 # Countries visited — one ISO3 code per line, "#" comments allowed.
 # Full code list: scripts/countries.geo.json ("id" of each feature).
+# Tiny countries missing from the map data (e.g. SGP, ABW) render as dots —
+# see SMALL_PLACES in build_activity.py.
 # After editing, run: python3 scripts/build_activity.py
 TUR  # home
-GBR  # home now — London
+GBR  # home now — London (covers Scotland)
 USA  # Davidson College
-ESP  # La Manga, Jul 2026
+ESP  # La Manga
+ARE  # UAE
+QAT
+SAU
+ZAF  # South Africa
+ABW  # Aruba (dot)
+ITA
+POL
+IRL
+FRA
+DEU
+BEL
+GRC
+SGP  # Singapore (dot)
+CHN
+MYS
+IDN
+THA
+VNM
+KOR  # South Korea
