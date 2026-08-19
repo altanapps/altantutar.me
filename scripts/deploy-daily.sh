@@ -1,0 +1,17 @@
+#!/bin/zsh
+# Stopgap auto-deploy: pull the daily-refresh commit and push it to Railway.
+# Runs from launchd (me.altantutar.site-deploy). Only deploys when the pull
+# actually moved HEAD. Delete this + the LaunchAgent once the Railway service
+# is connected to the GitHub repo (then pushes deploy themselves).
+set -e
+cd "$(dirname "$0")/.."
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+before=$(git rev-parse HEAD)
+git pull --ff-only --quiet
+after=$(git rev-parse HEAD)
+if [ "$before" != "$after" ]; then
+  railway up --service altantutar-me --detach
+  echo "$(date -u +%FT%TZ) deployed $after" >> "$HOME/Library/Logs/site-deploy.log"
+else
+  echo "$(date -u +%FT%TZ) no change" >> "$HOME/Library/Logs/site-deploy.log"
+fi
