@@ -11,6 +11,7 @@ PRT
 NOR
 SWE
 DNK
+FIN
 NLD
 CHE  # Switzerland
 CZE
