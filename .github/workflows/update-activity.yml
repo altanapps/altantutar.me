@@ -1,10 +1,10 @@
-# Regenerates activity.html every day. A commit only happens when the numbers
+# Regenerates activity.html every hour. A commit only happens when the numbers
 # moved, and each commit makes Railway redeploy the site.
 name: Update activity page
 
 on:
   schedule:
-    - cron: "17 5 * * *" # daily, 05:17 UTC — odd minute to dodge cron spikes
+    - cron: "23 * * * *" # hourly, :23 — odd minute to dodge cron spikes
   workflow_dispatch: {}
 
 permissions:
@@ -29,5 +29,5 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add activity.html scripts/post-history.json scripts/x-timeline-cache.json
           git diff --cached --quiet && echo "no change" && exit 0
-          git commit -m "Daily activity refresh"
+          git commit -m "Activity refresh"
           git push
