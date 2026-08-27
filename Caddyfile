@@ -7,7 +7,20 @@
 	# Note: internal links use .html so the site also works from file:// and a
 	# plain static server. Duplicate URLs are resolved by the <link rel=canonical>
 
-	# Clean URLs: /research serves research.html
+	# Retired pages: their content now lives on the home page. Redirect so
+	# existing inbound links and search results still land somewhere real.
+	redir /research      / permanent
+	redir /research.html / permanent
+	redir /press        / permanent
+	redir /press.html   / permanent
+	redir /podcasts     / permanent
+	redir /podcasts.html / permanent
+	redir /blog         / permanent
+	redir /blog.html    / permanent
+	redir /side-projects / permanent
+	redir /side-projects.html / permanent
+
+	# Clean URLs: /activity serves activity.html
 	try_files {path} {path}.html {path}/index.html
 
 	file_server
